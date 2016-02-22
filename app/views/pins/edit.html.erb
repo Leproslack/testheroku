@@ -3,6 +3,9 @@
 <h3>Create new Item</h3>
 
 <%= simple_form_for @pin, html: {multipart: true } do |f| %>
+<% if @pin.image.present? %>
+<p><%= link_to (image_tag @pin.image.url(:medium)), @pin %></p>
+<% end %>
 <%= render partial: "form", locals: {f: f} %>
 <p><%= f.submit "Make changes" %></p>
 <% end %>

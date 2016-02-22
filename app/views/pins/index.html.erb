@@ -3,8 +3,10 @@
 </h2>
 <%@pins.each do |pin|%>
 <div class="form-group">
-<strong><%= pin.title %></strong>
-<p><%= pin.description %></p>
+<strong><%= link_to pin.title, pin %></strong>
+<% if pin.image.present? %>
+<p><%= link_to (image_tag pin.image.url(:medium)), pin %></p>
+<% end %>
 <small><strong>submited by: </strong><%= pin.user.email %></small>
 </div>
 <p><%= link_to "Delete", pin, method: :delete %> | <%= link_to "edit", edit_pin_path(pin) %></p>

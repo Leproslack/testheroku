@@ -5,6 +5,11 @@
 <div class="form-group">
 <%= @pin.description %>
 </div>
+<% if @pin.image.present? %>
+<div class="form-group">
+<%= image_tag @pin.image.url(:medium) %>
+</div>
+<% end %>
 <div class="form-group">
 <small><strong>submited by: </strong><%= @pin.user.email %></small>
 </div>
