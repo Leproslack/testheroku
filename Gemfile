@@ -8,6 +8,7 @@ gem 'rails', '5.0.0.beta1'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
+gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
