@@ -11,5 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap-sprockets
+//= require jquery_ujs
+//= require masonry/jquery.masonry
+//= require turbolinks
+//= require_tree

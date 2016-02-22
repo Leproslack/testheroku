@@ -1,13 +1,14 @@
-<h2>
-	<%= link_to "New", new_pin_path %>
-</h2>
-<%@pins.each do |pin|%>
-<div class="form-group">
-<strong><%= link_to pin.title, pin %></strong>
-<% if pin.image.present? %>
-<p><%= link_to (image_tag pin.image.url(:medium)), pin %></p>
-<% end %>
-<small><strong>submited by: </strong><%= pin.user.email %></small>
+<div class="transitions-enabled" id="pins">
+  <% @pins.each do |pin| %>
+    <div class="box panel panel-default">
+      <%= link_to (image_tag pin.image.url), pin %>
+      <h2>
+        <%= link_to pin.title, pin %>
+      </h2>
+      <p class="user">
+        Submitted by
+        <%= pin.user.email %>
+      </p>
+    </div>
+  <% end %>
 </div>
-<p><%= link_to "Delete", pin, method: :delete %> | <%= link_to "edit", edit_pin_path(pin) %></p>
-<%end%>

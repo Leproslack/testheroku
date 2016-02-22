@@ -130,6 +130,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    masonry-rails (0.2.4)
+      railties
     method_source (0.8.2)
     mime-types (2.99.1)
     mimemagic (0.3.0)
@@ -243,6 +245,7 @@ DEPENDENCIES
   devise!
   jbuilder (~> 2.0)
   jquery-rails
+  masonry-rails
   paperclip (~> 4.3, >= 4.3.5)
   pg
   rails (= 5.0.0.beta1)
