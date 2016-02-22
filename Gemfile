@@ -12,6 +12,7 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 gem 'paperclip', '~> 4.3', '>= 4.3.5'
 gem 'aws-sdk'
 gem 'masonry-rails'
+gem 'acts_as_votable', '~> 0.10.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
