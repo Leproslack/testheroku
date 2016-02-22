@@ -1,8 +1,11 @@
 Testhero::Application.routes.draw do
   
-  root "pins#index"
   
-  devise_for :users
+
+
+  root to: "pins#index"
   resources :pins
-  
+
+  devise_for :users
+    
 end
