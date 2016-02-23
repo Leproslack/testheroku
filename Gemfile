@@ -10,7 +10,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 gem 'paperclip', '~> 4.3', '>= 4.3.5'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem 'masonry-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 
