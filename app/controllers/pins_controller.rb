@@ -18,9 +18,11 @@ class PinsController < ApplicationController
     @pin = current_user.pins.build(pin_params)
 
     if @pin.save
-      redirect_to @pin, notice: "Succes"
+      flash[:success] = "Your pin has been created!"
+      redirect_to @pin
     else
-      render 'new'
+      flash[:alert] = "Your new pin couldn't be created!  Please check the form."
+      render :new
     end
   end
 
@@ -29,9 +31,11 @@ class PinsController < ApplicationController
 
   def update
     if @pin.update(pin_params)
-      redirect_to @pin, notice: "Succes"
+      flash[:success] = "Pin updated!"
+      redirect_to @pin
     else
-      render 'edit'
+      flash[:alert] = "Add more information!"
+      render :edit
     end
   end
 
