@@ -15,7 +15,7 @@ class PinsController < ApplicationController
   end
 
   def create
-    @pin = current_user.pins.build(pin_params)
+    @pin = current_user.pins.build(pin_params) rescue Pin.new
 
     if @pin.save
       flash[:success] = "Your pin has been created!"
