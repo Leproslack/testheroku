@@ -1,28 +1,23 @@
-
+<div class="form-group">
+<%= image_tag 'ph.jpg', id: 'image-preview', class: 'img-responsive' %>
 	<%= simple_form_for @pin, html: { multipart: true } do |f| %>
+</div>  
+<div id="errors">
   <% if @pin.errors.any? %>
-    <div id="errors">
-      <h2>
-        <%= pluralize(@pin.errors.count, "error") %>
-        prevented this Pin from saving
-      </h2>
-      <ul>
-        <% @pin.errors.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+  <% end %>
+      <%= yield %>
+</div>
   <% end %>
   <div class="form-group">
-    <%= f.input :image, input_html: { class: 'form-control' } %>
+    <%= f.input :image, label: false, input_html: { onChange: 'loadFile(event)', class: 'form-control' } %>
   </div>
   <div class="form-group">
-    <%= f.input :title, input_html: { class: 'form-control' } %>
+    <%= f.input :title, label: false, placeholder: "Title here", input_html: { class: 'form-control' } %>
   </div>
   <div class="form-group">
-    <%= f.input :description, input_html: { class: 'form-control' } %>
+    <%= f.input :description, label: false, placeholder: "Text description", input_html: { class: 'form-control' } %>
   </div>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
