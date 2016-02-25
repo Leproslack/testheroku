@@ -1,0 +1,16 @@
+
+	<%= simple_form_for [commentable, Comment.new] do |f| %>
+
+<div id="errors">
+  <% if @pin.errors.any? %>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+  <% end %>
+      <%= yield %>
+</div>
+  <% end %>
+    <div class="form-group">
+    <%= f.input :body, label: false, placeholder: "Comment", input_html: { class: 'form-control' } %>
+  </div>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
