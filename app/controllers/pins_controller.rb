@@ -2,8 +2,9 @@ class PinsController < ApplicationController
 
   before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :authenticate_admin!, only: [ :new, :edit, :update, :create, :destroy]
-  def index
+  before_action :check_privileges!, except: [:index, :show]
+ 
+   def index
     @pins = Pin.all.order("created_at DESC")
   end
 
@@ -12,7 +13,6 @@ class PinsController < ApplicationController
   end
 
   def show
-    @pins = Pin
   end
 
   def create
@@ -54,10 +54,17 @@ class PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :description, :image)
+    params.require(:pin).permit(:title, :description, :image, :comment)
   end
 
   def find_pin
     @pin = Pin.find(params[:id])
+  end
+
+  def check_privileges!
+    unless current_user.admin?
+      flash[:alert] = 'You dont have enough permissions to be here'
+      redirect_to @pin
+    end
   end
 end
