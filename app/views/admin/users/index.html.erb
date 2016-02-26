@@ -1,0 +1,13 @@
+<div class="transitions-enabled" id="users">
+  <% @users.each do |user| %>
+      <div class="box panel panel-default">
+        <div class="btn-group pull-right">
+
+          <%= link_to "Admin?", admin_user_path(user), class: "btn btn-default" %>
+          <%= link_to "Delete", admin_user_path(user), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default" %>
+        </div>
+        <%= user.email %>
+        <%= user.admin %>
+      </div>
+  <% end %>
+</div>

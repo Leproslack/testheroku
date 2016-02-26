@@ -14,8 +14,12 @@
 /log/*.log
 /tmp
 
+
+public/system/pins/**
+
+.idea
+
 public/system/pins/images/000/000/012/medium/mlechnyy-put-doroga-kosmos.jpg
 public/system/pins/images/000/000/012/original/mlechnyy-put-doroga-kosmos.jpg
 public/system/pins/images/000/000/013/medium/mlechnyy-put-doroga-kosmos.jpg
 public/system/pins/images/000/000/013/original/mlechnyy-put-doroga-kosmos.jpg
-public/system/pins/**

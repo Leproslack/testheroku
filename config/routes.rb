@@ -15,6 +15,12 @@ Testhero::Application.routes.draw do
   end
 
   devise_for :users
-  
-  
+
+  get "/admin" => "admin/pins#index"
+
+  namespace :admin do
+    resources :pins
+    resources :users
+  end
+
 end
