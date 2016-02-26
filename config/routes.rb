@@ -15,4 +15,6 @@ Testhero::Application.routes.draw do
   end
 
   devise_for :users
+  
+  
 end

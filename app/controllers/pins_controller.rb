@@ -61,10 +61,4 @@ class PinsController < ApplicationController
     @pin = Pin.find(params[:id])
   end
 
-  def check_privileges!
-    unless current_user.admin?
-      flash[:alert] = 'You dont have enough permissions to be here'
-      redirect_to @pin
-    end
-  end
 end

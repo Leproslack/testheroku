@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_comments
 
   def create
     @comment = @commentable.comments.new comments_params
@@ -9,13 +10,16 @@ class CommentsController < ApplicationController
   end
 
   def upvote
-    @comment = Comment.find(params[:id])
     @comment.upvote_by current_user
     redirect_to :back
   end
   
 
   private
+
+    def find_comments
+      @comment = Comment.find(params[:id])
+    end
 
     def comments_params
       params.require(:comment).permit(:body)
